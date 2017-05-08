@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.ekoisa.phonegap.plugin.cordova_background_job"
+        version="2.0.0">
+
+    <name>Background Job Plugin</name>
+
+    <description>
+        A background service to do some job that used by Cordova / Phonegap base application
+    </description>
+
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+	<!-- Load in the core background service -->
+	<dependency id="com.red_folder.phonegap.plugin.backgroundservice" url="https://github.com/Red-Folder/bgs-core.git"/>
+
+    <!-- android -->
+    <platform name="android">
+
+		<asset src="www/jobTodo.html" target="jobTodo.html" />
+
+		<js-module src="www/myService.js" name="MyService">
+			<clobbers target="cordova.plugins.myService" />
+		</js-module>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+  
+            <service android:name="com.red_folder.phonegap.plugin.backgroundservice.sample.MyService">
+                <intent-filter>         
+                    <action android:name="com.red_folder.phonegap.plugin.backgroundservice.sample.MyService"/> 
+                </intent-filter>     
+            </service>
+            
+        </config-file>
+        
+        <source-file src="src/android/MyService.java" target-dir="src/com/red_folder/phonegap/plugin/backgroundservice/sample" />
+    </platform>
+	
+</plugin>
