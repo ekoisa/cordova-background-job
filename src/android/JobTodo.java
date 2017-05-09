@@ -10,9 +10,9 @@ import android.util.Log;
 
 import com.red_folder.phonegap.plugin.backgroundservice.BackgroundService;
 
-public class TodoService extends BackgroundService {
+public class JobTodo extends BackgroundService {
 	
-	private final static String TAG = TodoService.class.getSimpleName();
+	private final static String TAG = JobTodo.class.getSimpleName();
 	
 	private String mHelloTo = "World";
 

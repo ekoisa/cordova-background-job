@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.ekoisa.phonegap.plugin.cordova_background_job"
-        version="2.0.0">
+        version="0.1.0">
 
     <name>Background Job Plugin</name>
 
@@ -17,28 +17,28 @@
     </engines>
 
 	<!-- Load in the core background service -->
-	<dependency id="com.red_folder.phonegap.plugin.backgroundservice" url="https://github.com/Red-Folder/bgs-core.git"/>
+	<dependency id="com.red_folder.phonegap.plugin.backgroundservice" url="https://github.com/Red-Folder/bgs-core.git" commit="f37a2ae0fa9cfaecea391115809baf8cb098c23a" />
 
     <!-- android -->
     <platform name="android">
 
-		<asset src="www/jobTodo.html" target="jobTodo.html" />
+		<asset src="www/JobTodo.html" target="JobTodo.html" />
 
-		<js-module src="www/myService.js" name="MyService">
-			<clobbers target="cordova.plugins.myService" />
+		<js-module src="www/JobTodo.js" name="bgServiceTodo">
+			<clobbers target="cordova.plugins.bgServiceTodo" />
 		</js-module>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
   
-            <service android:name="com.red_folder.phonegap.plugin.backgroundservice.sample.MyService">
+            <service android:name="com.ekoisa.phonegap.plugin.cordova_background_job.JobTodo">
                 <intent-filter>         
-                    <action android:name="com.red_folder.phonegap.plugin.backgroundservice.sample.MyService"/> 
+                    <action android:name="com.ekoisa.phonegap.plugin.cordova_background_job.JobTodo"/> 
                 </intent-filter>     
             </service>
             
         </config-file>
         
-        <source-file src="src/android/MyService.java" target-dir="src/com/red_folder/phonegap/plugin/backgroundservice/sample" />
+        <source-file src="src/android/JobTodo.java" target-dir="src/com/ekoisa/phonegap/plugin/cordova_background_job" />
     </platform>
 	
 </plugin>

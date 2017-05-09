@@ -1,19 +1,8 @@
 <!DOCTYPE HTML>
 <!--
 /*
- * Copyright 2013 Red Folder Consultancy Ltd
- *   
- * Licensed under the Apache License, Version 2.0 (the "License");   
- * you may not use this file except in compliance with the License.   
- * You may obtain a copy of the License at       
+ * Copyright 2017 Eko isa (ekoisa@gmail.com)
  * 
- * 	http://www.apache.org/licenses/LICENSE-2.0   
- *
- * Unless required by applicable law or agreed to in writing, software   
- * distributed under the License is distributed on an "AS IS" BASIS,   
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   
- * See the License for the specific language governing permissions and   
- * limitations under the License.
  */
 -->
 <html>
@@ -23,10 +12,10 @@
 		<script type="text/javascript" src="cordova.js"></script>
 		
         <script type="text/javascript" >
-        	var myService;
+        	var TodoService;
         	
         	document.addEventListener('deviceready', function() {
-				myService = cordova.plugins.myService;
+				TodoService = cordova.plugins.TodoService;
 				getStatus();
   			}, true);
 
@@ -44,48 +33,48 @@
 			 * Button Handlers
 			 */ 			
  			function getStatus() {
- 				myService.getStatus(	function(r){handleSuccess(r)},
+ 				TodoService.getStatus(	function(r){handleSuccess(r)},
  										function(e){handleError(e)});
  			};
  			
  			function startService() {
-				myService.startService(	function(r){handleSuccess(r)},
+				TodoService.startService(	function(r){handleSuccess(r)},
 										function(e){handleError(e)});
  			}
 
  			function stopService() {
-	 			myService.stopService(	function(r){handleSuccess(r)},
+	 			TodoService.stopService(	function(r){handleSuccess(r)},
  										function(e){handleError(e)});
 			}
 
  			function enableTimer() {
-				myService.enableTimer(	60000,
+				TodoService.enableTimer(	60000,
 										function(r){handleSuccess(r)},
 										function(e){handleError(e)});
  			}
 
  			function disableTimer() {
-	 			myService.disableTimer(	function(r){handleSuccess(r)},
+	 			TodoService.disableTimer(	function(r){handleSuccess(r)},
  										function(e){handleError(e)});
 			};
 			 			
  			function registerForBootStart() {
-				myService.registerForBootStart(	function(r){handleSuccess(r)},
+				TodoService.registerForBootStart(	function(r){handleSuccess(r)},
 												function(e){handleError(e)});
  			}
 
  			function deregisterForBootStart() {
-				myService.deregisterForBootStart(	function(r){handleSuccess(r)},
+				TodoService.deregisterForBootStart(	function(r){handleSuccess(r)},
 													function(e){handleError(e)});
  			}
 
  			function registerForUpdates() {
-				myService.registerForUpdates(	function(r){handleSuccess(r)},
+				TodoService.registerForUpdates(	function(r){handleSuccess(r)},
 												function(e){handleError(e)});
  			}
 
  			function deregisterForUpdates() {
-				myService.deregisterForUpdates(	function(r){handleSuccess(r)},
+				TodoService.deregisterForUpdates(	function(r){handleSuccess(r)},
 												function(e){handleError(e)});
  			}
 
@@ -95,7 +84,7 @@
  				var config = { 
  								"HelloTo" : helloToString 
  							}; 
-				myService.setConfiguration(	config,
+				TodoService.setConfiguration(	config,
 											function(r){handleSuccess(r)},
 											function(e){handleError(e)});
  			}
@@ -187,7 +176,7 @@
 	</head>
 	
 	<body>
-		<h1>MyService</h1>
+		<h1>TodoService</h1>
 		
 		<table>
 			<tr>
